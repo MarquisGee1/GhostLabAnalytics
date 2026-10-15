@@ -1,0 +1,112 @@
+# Daily data refresh + deploy for Locked In Analytics.
+#
+# 1. scrape:  one parallel job per sport. Restores yesterday's data from the `site` branch,
+#             re-scrapes teams that played yesterday / play today (or everything on a full refresh).
+# 2. publish: combines the app (pwa/ on main) with the fresh data and force-pushes it as a single
+#             commit to the `site` branch. Your host (Cloudflare Pages / Netlify) deploys that branch.
+#             The branch is overwritten each time, so data history never bloats the repo.
+
+name: Refresh data and deploy
+
+on:
+  schedule:
+    - cron: "0 11 * * *" # 11:00 UTC = 7am ET (6am in winter), after last night's games are final
+  workflow_dispatch:
+    inputs:
+      full_refresh:
+        description: "Re-scrape every team (slow: NBA ~30 min, MLB ~1 hr)"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: ["pwa/**", ".github/workflows/**"] # app changes redeploy without scraping
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false # one sport failing (e.g. ESPN hiccup) shouldn't block the others
+      matrix:
+        sport: [nba, wnba, mlb]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore previous data
+        run: |
+          if git fetch --depth=1 origin site; then
+            git archive FETCH_HEAD "data/${{ matrix.sport }}" | tar -x -C pwa || echo "No previous ${{ matrix.sport }} data"
+          fi
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: any::dplyr, any::httr2, any::jsonlite, any::rvest, any::stringr, any::xml2
+
+      - name: Scrape ${{ matrix.sport }}
+        run: Rscript pipeline/${{ matrix.sport }}.R
+        env:
+          LOCKEDIN_FULL_REFRESH: ${{ inputs.full_refresh || 'false' }}
+          APP_TIMEZONE: America/New_York
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: data-${{ matrix.sport }}
+          path: pwa/data/${{ matrix.sport }}
+          retention-days: 3
+          if-no-files-found: ignore
+
+  publish:
+    needs: scrape
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble site from app + last published data
+        run: |
+          cp -r pwa _site
+          if git fetch --depth=1 origin site; then
+            git archive FETCH_HEAD data | tar -x -C _site || true
+          fi
+          cp pwa/data/picks.json _site/data/picks.json   # picks are edited on main
+          # New service worker version per commit so installed apps pick up app changes.
+          sed -i "s/const VERSION = \"[^\"]*\"/const VERSION = \"${GITHUB_SHA::7}\"/" _site/sw.js
+
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: data-*
+          path: artifacts
+
+      - name: Merge fresh data
+        run: |
+          for dir in artifacts/data-*; do
+            [ -f "$dir/meta.json" ] || continue
+            sport="${dir#artifacts/data-}"
+            rm -rf "_site/data/$sport" && cp -r "$dir" "_site/data/$sport"
+            echo "Updated $sport"
+          done
+
+      - name: Push to site branch
+        working-directory: _site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git init -q -b site
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Site update $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" site

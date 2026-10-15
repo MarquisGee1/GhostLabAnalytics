@@ -1,0 +1,8 @@
+# Scraped data lives on the `site` branch, not main.
+pwa/data/*
+!pwa/data/picks.json
+_site/
+artifacts/
+.Rhistory
+.Rproj.user/
+.DS_Store
