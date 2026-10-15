@@ -4,9 +4,9 @@ window.LOCKEDIN_CONFIG = {
 
   // Sports appear as tabs. Data comes from pipeline/<id>.R → data/<id>/.
   sports: [
-    { id: "nba", label: "NBA", enabled: true, accent: "#F4A261", seasonGames: 82 },
+    { id: "nba", label: "NBA", enabled: true, accent: "#E8590C", seasonGames: 82 },
     { id: "wnba", label: "WNBA", enabled: true, accent: "#E63946", seasonGames: 44 },
-    { id: "mlb", label: "MLB", enabled: true, accent: "#F4A261", seasonGames: 162 },
+    { id: "mlb", label: "MLB", enabled: true, accent: "#E8590C", seasonGames: 162 },
   ],
 
   // Free vs Pro limits.
