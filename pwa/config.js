@@ -2,11 +2,12 @@
 window.LOCKEDIN_CONFIG = {
   appName: "Locked In Analytics",
 
+  // accent colors borders and buttons; optional accentText is a lighter shade for labels on dark accents.
   // Sports appear as tabs. Data comes from pipeline/<id>.R → data/<id>/.
   sports: [
     { id: "nba", label: "NBA", enabled: true, accent: "#E8590C", seasonGames: 82 },
     { id: "wnba", label: "WNBA", enabled: true, accent: "#E63946", seasonGames: 44 },
-    { id: "mlb", label: "MLB", enabled: true, accent: "#E8590C", seasonGames: 162 },
+    { id: "mlb", label: "MLB", enabled: true, accent: "#1F3C88", accentText: "#7C9BE6", seasonGames: 162 },
   ],
 
   // Free vs Pro limits.

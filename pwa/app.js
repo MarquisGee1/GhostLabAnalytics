@@ -148,7 +148,9 @@
       });
       nav.appendChild(button);
     }
-    document.documentElement.style.setProperty("--accent", sportConfig().accent || "#E63946");
+    const { accent = "#E63946", accentText } = sportConfig();
+    document.documentElement.style.setProperty("--accent", accent);
+    document.documentElement.style.setProperty("--accent-text", accentText || accent);
   }
 
   function fillSelect(select, values, selected, labels = {}) {
