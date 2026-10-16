@@ -4,7 +4,7 @@ One installable web app (PWA) for NBA, WNBA and MLB player stats, refreshed auto
 
 ```
 GitHub Actions (daily, 7am ET)
-  └─ pipeline/nba.R, wnba.R, mlb.R   scrape ESPN in parallel → JSON
+  └─ pipeline/nba.R                  adds new ESPN box scores → JSON
        └─ `site` branch               app + data, overwritten each run
             └─ Cloudflare Pages        auto-deploys the branch → users' phones
 ```
@@ -12,7 +12,8 @@ GitHub Actions (daily, 7am ET)
 | Path | What it is |
 |---|---|
 | `pipeline/common.R` | Shared scraping, date parsing and JSON export |
-| `pipeline/<sport>.R` | Per-sport cleaning and stats (ported from your Shiny apps) |
+| `pipeline/nba.R` | NBA, from ESPN's box score API (live) |
+| `pipeline/wnba.R`, `mlb.R` | Old HTML scrapers, paused: ESPN's website blocks GitHub's servers |
 | `pwa/` | The app: `index.html`, `app.js`, `styles.css`, `sw.js` |
 | `pwa/config.js` | Sports, free vs Pro limits, price, Stripe link |
 | `pwa/data/picks.json` | Your daily picks (only file in `data/` you edit by hand) |
@@ -49,16 +50,22 @@ Edit `pwa/data/picks.json` on GitHub (pencil icon → commit). Example:
 
 ## Run locally
 ```bash
-Rscript pipeline/wnba.R                                   # or LOCKEDIN_TEAMS=BOS Rscript pipeline/nba.R
+LOCKEDIN_TEAMS=BOS Rscript pipeline/nba.R                # quick one-team backfill
 python3 -m http.server 8765 --directory pwa               # open http://localhost:8765
 ```
 Add `?pro=1` to the URL to preview Pro, or `?pro=0` for free.
 
+## How NBA data is stored
+Every game is downloaded once and kept. The first run backfills the seasons listed in
+`pipeline/nba.R` (about 1,300 games, roughly 30 minutes). Each daily run checks the last few
+days of scoreboards and adds only games it hasn't seen, which is usually 5–15 API calls.
+The processed game IDs are in `data/nba/events.json` on the `site` branch.
+
 ## Pipeline settings (environment variables)
-- `LOCKEDIN_FULL_REFRESH=true` scrapes every team. By default a run scrapes teams that played
-  yesterday or play today, plus any team that has no data yet.
-- `LOCKEDIN_TEAMS=BOS,NYY` scrapes only these teams.
-- `LOCKEDIN_SCRAPE_DELAY=2` sets the seconds between player pages. Keep it polite.
+- `LOCKEDIN_FULL_REFRESH=true` throws away stored data and backfills from scratch.
+- `LOCKEDIN_TEAMS=BOS` limits a backfill to one team's games, for quick tests.
+- `LOCKEDIN_TODAY=2026-03-05` pretends today is another date, for testing the daily update.
+- `LOCKEDIN_API_DELAY=1` sets the seconds between ESPN API calls. Keep it polite.
 
 ## Before charging money
 - **Pro unlock is a prototype.** It's a browser flag (`?pro=1`), and the data files are public.

@@ -1,7 +1,7 @@
 # Daily data refresh + deploy for Locked In Analytics.
 #
-# 1. scrape:  one parallel job per sport. Restores yesterday's data from the `site` branch,
-#             re-scrapes teams that played yesterday / play today (or everything on a full refresh).
+# 1. scrape:  one parallel job per sport. Restores stored data from the `site` branch and appends
+#             box scores for games it hasn't seen yet (first run backfills whole seasons).
 # 2. publish: combines the app (pwa/ on main) with the fresh data and force-pushes it as a single
 #             commit to the `site` branch. Your host (Cloudflare Pages / Netlify) deploys that branch.
 #             The branch is overwritten each time, so data history never bloats the repo.
@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       full_refresh:
-        description: "Re-scrape every team (slow: NBA ~30 min, MLB ~1 hr)"
+        description: "Rebuild from scratch: re-download every game of the backfill seasons (~30 min)"
         type: boolean
         default: false
   push:
@@ -31,14 +31,14 @@ concurrency:
 jobs:
   scrape:
     if: github.event_name != 'push'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # pinned: ubuntu-latest moves to 26.04, which R binaries may lag
     timeout-minutes: 150
     strategy:
       fail-fast: false # one sport failing (e.g. ESPN hiccup) shouldn't block the others
       matrix:
-        sport: [nba, wnba, mlb]
+        sport: [nba] # add wnba, mlb back once they use the box score pipeline
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Restore previous data
         run: |
@@ -70,9 +70,9 @@ jobs:
   publish:
     needs: scrape
     if: ${{ !cancelled() }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # pinned: ubuntu-latest moves to 26.04, which R binaries may lag
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Assemble site from app + last published data
         run: |
