@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#121212">
+  <meta name="description" content="Player game logs, trends and daily picks for WNBA, NBA and MLB.">
+  <title>Locked In Analytics</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="icons/icon-192.png" alt="" width="32" height="32"><span id="brand-name">Locked In Analytics</span></div>
+    <button id="pro-button" class="pro-button" type="button">Go Pro</button>
+  </header>
+
+  <nav id="sport-tabs" class="sport-tabs" aria-label="Sport"></nav>
+
+  <main class="layout">
+    <section class="controls card" aria-label="Filters">
+      <label class="field">
+        <span>Team</span>
+        <select id="team-select"></select>
+      </label>
+
+      <label class="field hidden" id="group-field">
+        <span>Role</span>
+        <select id="group-select"></select>
+      </label>
+
+      <div class="segmented" role="group" aria-label="View">
+        <button type="button" data-mode="player" class="active">Player</button>
+        <button type="button" data-mode="team">Team Compare <span class="lock" data-lock="teamCompare">PRO</span></button>
+      </div>
+
+      <label class="field" id="player-field">
+        <span>Player</span>
+        <select id="player-select"></select>
+      </label>
+
+      <label class="field hidden" id="topn-field">
+        <span>Top players to compare: <b id="topn-value">5</b></span>
+        <input id="topn" type="range" min="2" max="10" value="5">
+      </label>
+
+      <div class="field">
+        <span>Stats</span>
+        <div id="stat-chips" class="chips"></div>
+      </div>
+
+      <label class="field">
+        <span>Recent games: <b id="games-value">10</b> <span class="lock hidden" id="games-lock">PRO unlocks more</span></span>
+        <input id="games" type="range" min="5" max="10" value="10">
+      </label>
+
+      <label class="toggle"><input type="checkbox" id="avg-lines"> Show average lines</label>
+      <label class="toggle"><input type="checkbox" id="cumulative"> Show cumulative totals</label>
+
+      <fieldset class="prop-controls" id="prop-controls">
+        <legend>Prop Hit Rate <span class="lock" data-lock="props">PRO</span></legend>
+        <div class="prop-row">
+          <label class="field"><span>Stat</span><select id="prop-stat"></select></label>
+          <label class="field"><span>Line</span><input id="prop-line" type="number" step="0.5" inputmode="decimal"></label>
+        </div>
+        <div class="segmented" id="prop-side" role="group" aria-label="Over or under">
+          <button type="button" data-side="Over" class="active">Over</button>
+          <button type="button" data-side="Under">Under</button>
+        </div>
+      </fieldset>
+
+      <button id="csv-button" class="secondary" type="button">Download CSV <span class="lock" data-lock="csvExport">PRO</span></button>
+    </section>
+
+    <section class="results">
+      <div id="pick-box" class="pick-box"></div>
+      <div id="prop-box" class="prop-box hidden"></div>
+      <div class="card chart-card">
+        <h2 id="chart-title" class="chart-title"></h2>
+        <div id="chart" class="chart"></div>
+      </div>
+      <div id="averages" class="averages"></div>
+      <div class="card table-card">
+        <table id="log-table" class="log-table"></table>
+      </div>
+      <p id="updated" class="updated"></p>
+    </section>
+  </main>
+
+  <dialog id="paywall" class="paywall">
+    <form method="dialog">
+      <h2>Locked In <span class="accent">Pro</span></h2>
+      <p id="paywall-reason" class="paywall-reason"></p>
+      <ul>
+        <li>WNBA, NBA and MLB in one app</li>
+        <li>Full season game logs, not just the last 10</li>
+        <li>Prop Hit Rate: see how often a player clears any line</li>
+        <li>Team compare: rank and chart top players</li>
+        <li>Daily Locked In picks</li>
+        <li>CSV export</li>
+      </ul>
+      <button id="checkout-button" class="primary" type="button"></button>
+      <p id="checkout-note" class="fine"></p>
+      <button class="link" value="close">Not now</button>
+    </form>
+  </dialog>
+
+  <script src="vendor/plotly-basic-2.35.2.min.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

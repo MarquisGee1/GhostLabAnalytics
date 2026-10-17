@@ -1,0 +1,166 @@
+{
+  "sport": "nba",
+  "updated": "2026-10-16T16:13:16+0000",
+  "latest_game": "2026-06-13",
+  "stats": ["PTS", "AST", "REB", "PRA"],
+  "stat_labels": {
+    "PTS": "Points",
+    "AST": "Assists",
+    "REB": "Rebounds",
+    "PRA": "Pts+Reb+Ast"
+  },
+  "groups": null,
+  "rate_stats": [],
+  "teams": [
+    {
+      "abbr": "ATL",
+      "players": ["Asa Newell", "Buddy Hield", "Caleb Houstan", "Christian Koloko", "CJ McCollum", "Corey Kispert", "Dyson Daniels", "Gabe Vincent", "Jacob Toppin", "Jalen Johnson", "Jock Landale", "Jonathan Kuminga", "Keaton Wallace", "Keshon Gilbert", "Mouhamed Gueye", "N'Faly Dante", "Nickeil Alexander-Walker", "Onyeka Okongwu", "RayJ Dennis", "Tony Bradley", "Zaccharie Risacher"],
+      "latest_game": "2026-04-30"
+    },
+    {
+      "abbr": "BKN",
+      "players": ["Ben Saraf", "Chaney Johnson", "Danny Wolf", "Day'Ron Sharpe", "Drake Powell", "E.J. Liddell", "Egor Demin", "Grant Nelson", "Jalen Wilson", "Josh Minott", "Malachi Smith", "Michael Porter Jr.", "Nic Claxton", "Noah Clowney", "Nolan Traore", "Ochai Agbaji", "Terance Mann", "Trevon Scott", "Tyson Etienne", "Ziaire Williams"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "BOS",
+      "players": ["Amari Williams", "Baylor Scheierman", "Chris Boucher", "Dalano Banton", "Derrick White", "Hugo Gonzalez", "Jaylen Brown", "Jayson Tatum", "John Tonje", "Jordan Walsh", "Luka Garza", "Max Shulga", "Neemias Queta", "Nikola Vucevic", "Payton Pritchard", "Ron Harper Jr.", "Sam Hauser"],
+      "latest_game": "2026-05-02"
+    },
+    {
+      "abbr": "CHA",
+      "players": ["Antonio Reeves", "Brandon Miller", "Coby White", "Drew Peterson", "Grant Williams", "Josh Green", "Kon Knueppel", "LaMelo Ball", "Liam McNeeley", "Miles Bridges", "Moussa Diabate", "Pat Connaughton", "PJ Hall", "Ryan Kalkbrenner", "Sion James", "Tidjane Salaun", "Tre Mann", "Xavier Tillman"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "CHI",
+      "players": ["Anfernee Simons", "Collin Sexton", "Emanuel Miller", "Guerschon Yabusele", "Isaac Okoro", "Jaden Ivey", "Jalen Smith", "Josh Giddey", "Lachlan Olbrich", "Leonard Miller", "Mac McClung", "Matas Buzelis", "Mouhamadou Gueye", "Nick Richards", "Noa Essengue", "Patrick Williams", "Rob Dillingham", "Tre Jones", "Trentyn Flowers", "Yuki Kawamura", "Zach Collins"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "CLE",
+      "players": ["Chris Livingston", "Craig Porter Jr.", "Darius Brown II", "Dean Wade", "Dennis Schroder", "Donovan Mitchell", "Evan Mobley", "James Harden", "Jarrett Allen", "Jaylon Tyson", "Keon Ellis", "Larry Nance Jr.", "Lonzo Ball", "Luke Travers", "Max Strus", "Nae'Qwan Tomlin", "Olivier Sarr", "Riley Minix", "Sam Merrill", "Thomas Bryant", "Tristan Enaruna", "Tyrese Proctor"],
+      "latest_game": "2026-05-25"
+    },
+    {
+      "abbr": "DAL",
+      "players": ["AJ Johnson", "Anthony Davis", "Brandon Williams", "Caleb Martin", "Cooper Flagg", "D'Angelo Russell", "Daniel Gafford", "Dereck Lively II", "Dwight Powell", "Jeremiah Robinson-Earl", "John Poulakidas", "Khris Middleton", "Klay Thompson", "Marvin Bagley III", "Max Christie", "Miles Kelly", "Moussa Cisse", "Naji Marshall", "P.J. Washington", "Ryan Nembhard", "Tyler Smith"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "DEN",
+      "players": ["Aaron Gordon", "Bruce Brown", "Cameron Johnson", "Christian Braun", "Curtis Jones", "DaRon Holmes II", "David Roddy", "Hunter Tyson", "Jalen Pickett", "Jamal Murray", "Jonas Valanciunas", "Julian Strawther", "KJ Simpson", "Nikola Jokic", "Peyton Watson", "Spencer Jones", "Tim Hardaway Jr.", "Tyus Jones", "Zeke Nnaji"],
+      "latest_game": "2026-04-27"
+    },
+    {
+      "abbr": "DET",
+      "players": ["Ausar Thompson", "Bobi Klintman", "Cade Cunningham", "Caris LeVert", "Chaz Lanier", "Colby Jones", "Daniss Jenkins", "Duncan Robinson", "Isaac Jones", "Isaiah Stewart", "Jalen Duren", "Javonte Green", "Kevin Huerter", "Marcus Sasser", "Paul Reed", "Ronald Holland II", "Tobias Harris", "Tolu Smith", "Wendell Moore Jr."],
+      "latest_game": "2026-05-17"
+    },
+    {
+      "abbr": "GS",
+      "players": ["Al Horford", "Brandin Podziemski", "Charles Bassey", "De'Anthony Melton", "Draymond Green", "Gary Payton II", "Gui Santos", "Jimmy Butler III", "Kristaps Porzingis", "LJ Cryer", "Malevy Leons", "Moses Moody", "Nate Williams", "Omer Yurtseven", "Pat Spencer", "Quinten Post", "Seth Curry", "Stephen Curry", "Will Richard"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "HOU",
+      "players": ["Aaron Holiday", "Alperen Sengun", "Amen Thompson", "Clint Capela", "Dorian Finney-Smith", "Isaiah Crawford", "Jabari Smith Jr.", "Jae'Sean Tate", "JD Davison", "Jeff Green", "Josh Okogie", "Kevin Durant", "Reed Sheppard", "Steven Adams", "Tari Eason", "Tristen Newton"],
+      "latest_game": "2026-05-01"
+    },
+    {
+      "abbr": "IND",
+      "players": ["Aaron Nesmith", "Andrew Nembhard", "Ben Sheppard", "Cody Martin", "Ethan Thompson", "Garrison Mathews", "Ivica Zubac", "Jalen Slawson", "James Wiseman", "Jarace Walker", "Jay Huff", "Johnny Furphy", "Kam Jones", "Kobe Brown", "Micah Potter", "Monte Morris", "Obi Toppin", "Pascal Siakam", "Quenton Jackson", "T.J. McConnell", "Taelon Peter"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "LAC",
+      "players": ["Bennedict Mathurin", "Bogdan Bogdanovic", "Bradley Beal", "Brook Lopez", "Cam Christie", "Chris Paul", "Darius Garland", "Derrick Jones Jr.", "Isaiah Jackson", "Jahmyl Telfort", "John Collins", "Jordan Miller", "Kawhi Leonard", "Kobe Sanders", "Kris Dunn", "Nicolas Batum", "Norchad Omier", "Sean Pedulla", "TyTy Washington Jr.", "Yanic Konan Niederhauser"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "LAL",
+      "players": ["Adou Thiero", "Austin Reaves", "Bronny James", "Chris Manon", "Dalton Knecht", "Deandre Ayton", "Drew Timme", "Jake LaRavia", "Jarred Vanderbilt", "Jaxson Hayes", "Kobe Bufkin", "LeBron James", "Luka Doncic", "Luke Kennard", "Marcus Smart", "Maxi Kleber", "Nick Smith Jr.", "Rui Hachimura"],
+      "latest_game": "2026-05-11"
+    },
+    {
+      "abbr": "MEM",
+      "players": ["Adama Bal", "Brandon Clarke", "Cam Spencer", "Cedric Coward", "Dariq Whitehead", "DeJon Jarreau", "GG Jackson", "Ja Morant", "Jahmai Mashack", "Javon Small", "Jaylen Wells", "Kentavious Caldwell-Pope", "Lawson Lovering", "Lucas Williamson", "Olivier-Maxence Prosper", "Rayan Rupert", "Santi Aldama", "Scotty Pippen Jr.", "Taj Gibson", "Taylor Hendricks", "Toby Okani", "Ty Jerome", "Tyler Burton", "Walter Clayton Jr.", "Zach Edey"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "MIA",
+      "players": ["Andrew Wiggins", "Bam Adebayo", "Davion Mitchell", "Dru Smith", "Jahmir Young", "Jaime Jaquez Jr.", "Kasparas Jakucionis", "Kel'el Ware", "Keshad Johnson", "Myron Gardner", "Nikola Jovic", "Norman Powell", "Pelle Larsson", "Simone Fontecchio", "Trevor Keels", "Tyler Herro", "Vladislav Goldin"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "MIL",
+      "players": ["AJ Green", "Alex Antetokounmpo", "Andre Jackson Jr.", "Bobby Portis", "Cam Thomas", "Cole Anthony", "Cormac Ryan", "Gary Harris", "Gary Trent Jr.", "Giannis Antetokounmpo", "Jericho Sims", "Kevin Porter Jr.", "Kyle Kuzma", "Mark Sears", "Myles Turner", "Ousmane Dieng", "Pete Nance", "Ryan Rollins", "Taurean Prince", "Thanasis Antetokounmpo"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "MIN",
+      "players": ["Anthony Edwards", "Ayo Dosunmu", "Bones Hyland", "Donte DiVincenzo", "Enrique Freeman", "Jaden McDaniels", "Jaylen Clark", "Joan Beringer", "Joe Ingles", "Johnny Juzang", "Julian Phillips", "Julius Randle", "Kyle Anderson", "Mike Conley", "Naz Reid", "Rocco Zikarsky", "Rudy Gobert", "Terrence Shannon Jr.", "Zyon Pullin"],
+      "latest_game": "2026-05-15"
+    },
+    {
+      "abbr": "NO",
+      "players": ["Bryce McGowens", "DeAndre Jordan", "Dejounte Murray", "Derik Queen", "Herbert Jones", "Hunter Dickinson", "Jeremiah Fears", "Jordan Hawkins", "Jordan Poole", "Josh Oduro", "Karlo Matkovic", "Kevon Looney", "Micah Peavy", "Saddiq Bey", "Trey Alexander", "Trey Murphy III", "Yves Missi", "Zion Williamson"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "NY",
+      "players": ["Ariel Hukporti", "Dillon Jones", "Jalen Brunson", "Jeremy Sochan", "Jordan Clarkson", "Jose Alvarado", "Josh Hart", "Karl-Anthony Towns", "Kevin McCullar Jr.", "Landry Shamet", "Mikal Bridges", "Miles McBride", "Mitchell Robinson", "Mohamed Diawara", "OG Anunoby", "Pacome Dadiet", "Tosan Evbuomwan", "Trey Jemison III", "Tyler Kolek"],
+      "latest_game": "2026-06-13"
+    },
+    {
+      "abbr": "OKC",
+      "players": ["Aaron Wiggins", "Ajay Mitchell", "Alex Caruso", "Branden Carlson", "Brooks Barnhizer", "Buddy Boeheim", "Cason Wallace", "Chet Holmgren", "Isaiah Hartenstein", "Isaiah Joe", "Jalen Williams", "Jared McCain", "Jaylin Williams", "Kenrich Williams", "Luguentz Dort", "Nikola Topic", "Payton Sandfort", "Shai Gilgeous-Alexander"],
+      "latest_game": "2026-05-30"
+    },
+    {
+      "abbr": "ORL",
+      "players": ["Alex Morales", "Anthony Black", "Colin Castleton", "Desmond Bane", "Franz Wagner", "Goga Bitadze", "Jalen Suggs", "Jamal Cain", "Jase Richardson", "Jett Howard", "Jevon Carter", "Jonathan Isaac", "Moritz Wagner", "Noah Penda", "Orlando Robinson", "Paolo Banchero", "Tristan da Silva", "Wendell Carter Jr."],
+      "latest_game": "2026-05-03"
+    },
+    {
+      "abbr": "PHI",
+      "players": ["Adem Bona", "Andre Drummond", "Cameron Payne", "Dalen Terry", "Dominick Barlow", "Eric Gordon", "Hunter Sallis", "Jabari Walker", "Joel Embiid", "Johni Broome", "Justin Edwards", "Kelly Oubre Jr.", "Kyle Lowry", "MarJon Beauchamp", "Paul George", "Quentin Grimes", "Trendon Watford", "Tyrese Martin", "Tyrese Maxey", "VJ Edgecombe"],
+      "latest_game": "2026-05-10"
+    },
+    {
+      "abbr": "PHX",
+      "players": ["Amir Coffey", "CJ Huntley", "Collin Gillespie", "Devin Booker", "Dillon Brooks", "Grayson Allen", "Haywood Highsmith", "Isaiah Livers", "Jalen Green", "Jamaree Bouyea", "Jordan Goodwin", "Khaman Maluach", "Koby Brea", "Mark Williams", "Nigel Hayes-Davis", "Oso Ighodaro", "Rasheer Fleming", "Royce O'Neale", "Ryan Dunn"],
+      "latest_game": "2026-04-27"
+    },
+    {
+      "abbr": "POR",
+      "players": ["Blake Wesley", "Caleb Love", "Chris Youngblood", "Deni Avdija", "Donovan Clingan", "Duop Reath", "Javonte Cooke", "Jayson Kent", "Jerami Grant", "Jrue Holiday", "Kris Murray", "Matisse Thybulle", "Robert Williams III", "Scoot Henderson", "Shaedon Sharpe", "Sidy Cissoko", "Toumani Camara", "Vit Krejci", "Yang Hansen"],
+      "latest_game": "2026-04-28"
+    },
+    {
+      "abbr": "SA",
+      "players": ["Bismack Biyombo", "Carter Bryant", "David Jones Garcia", "De'Aaron Fox", "Devin Vassell", "Dylan Harper", "Harrison Barnes", "Harrison Ingram", "Jordan McLaughlin", "Julian Champagnie", "Keldon Johnson", "Kelly Olynyk", "Lindy Waters III", "Luke Kornet", "Mason Plumlee", "Stanley Umude", "Stephon Castle", "Victor Wembanyama"],
+      "latest_game": "2026-06-13"
+    },
+    {
+      "abbr": "SAC",
+      "players": ["Daeqwon Plowden", "DaQuan Jeffries", "Dario Saric", "De'Andre Hunter", "DeMar DeRozan", "Devin Carter", "Domantas Sabonis", "Doug McDermott", "Drew Eubanks", "Dylan Cardwell", "Isaiah Stevens", "Keegan Murray", "Killian Hayes", "Malik Monk", "Maxime Raynaud", "Nique Clifford", "Patrick Baldwin Jr.", "Precious Achiuwa", "Russell Westbrook", "Zach LaVine"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "TOR",
+      "players": ["A.J. Lawson", "Alijah Martin", "Brandon Ingram", "Chucky Hepburn", "Collin Murray-Boyles", "Garrett Temple", "Gradey Dick", "Immanuel Quickley", "Ja'Kobe Walter", "Jakob Poeltl", "Jamal Shead", "Jamison Battle", "Jonathan Mogbo", "Markelle Fultz", "RJ Barrett", "Sandro Mamukelashvili", "Scottie Barnes", "Trayce Jackson-Davis"],
+      "latest_game": "2026-05-03"
+    },
+    {
+      "abbr": "UTAH",
+      "players": ["Ace Bailey", "Andersson Garcia", "Bez Mbeng", "Blake Hinson", "Brice Sensabaugh", "Cody Williams", "Elijah Harkless", "Hayden Gray", "Isaiah Collier", "Jaren Jackson Jr.", "John Konchar", "Jusuf Nurkic", "Kennedy Chandler", "Kevin Love", "Keyonte George", "Kyle Filipowski", "Lauri Markkanen", "Mo Bamba", "Oscar Tshiebwe", "Svi Mykhailiuk", "Vince Williams Jr.", "Walker Kessler"],
+      "latest_game": "2026-04-12"
+    },
+    {
+      "abbr": "WSH",
+      "players": ["Alex Sarr", "Alondes Williams", "Anthony Gill", "Bilal Coulibaly", "Bub Carrington", "Cam Whitmore", "Jaden Hardy", "Jamir Watkins", "Julian Reese", "Justin Champagnie", "Kadary Richmond", "Kyshawn George", "Leaky Black", "Malaki Branham", "Sharife Cooper", "Skal Labissiere", "Trae Young", "Tre Johnson", "Tristan Vukcevic", "Will Riley"],
+      "latest_game": "2026-04-12"
+    }
+  ]
+}
